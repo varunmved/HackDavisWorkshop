@@ -1,0 +1,17 @@
+{
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+
+    "name": "varunve/date-analyzer",
+    "authors": [
+        {
+            "name": "Varun Ved",
+            "email": "varunmved@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
