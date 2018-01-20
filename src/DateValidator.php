@@ -8,15 +8,10 @@ class DateValidator
 
   private $yearInt;
 
+  private $isLeapYear;
 
   public function __construct(String $mdy)
   {
-
-    $loc1 = 0;
-    $loc2 = 0;
-    $monthStr = '';
-    $dayStr = '';
-    $yearStr = '';
     $bdayIn = $mdy;
 
     // find the delimiters
@@ -34,7 +29,6 @@ class DateValidator
     $this->dayInt = (int)$dayStr;
     $this->monthInt = (int)$monthStr;
     $this->yearInt = (int)$yearStr;
-
   }
 
   public function isLeapYear(int $monthT, int $dayT, int $yearT)
@@ -77,41 +71,25 @@ class DateValidator
 
   public function isValidDate($dayInt, $monthInt, $yearInt)
   {
-    /*
-        //Exceptions will help test that datatypes are really ints.
-        //The equality or relational operators will check the numerical
-        //values or ranges of those ints.
-        */
-    $validMonth = false;
-    $validYear = false;
-    $validDay = false;
-
-
     if ($monthInt == 2 && $dayInt == 29) {
       $this->isLeapYear($monthInt, $dayInt, $yearInt);
     }
 
     if ($monthInt <= 12 || $monthInt >= 1) {
       $validMonth = true;
-      //return $validMonth;
     } else {
       $validMonth = false;
-      //return $validMonth;
     }
 
     if ($dayInt <= 31 || $dayInt >= 0) {
       $validDay = true;
-      //return $validDay;
     } else {
       $validDay = false;
-      //return $validDay;
     }
     if ($yearInt <= 2018 || $yearInt >= 1900) {
       $validYear = true;
-      //return $validDay;
     } else {
       $validYear = false;
-      //return $validDay;
     }
 
     $maxDay = $this->maxDaysMonth($monthInt, $yearInt);
